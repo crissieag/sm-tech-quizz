@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Tech Quizz</string>
-    <string name="btnTxt">Enviar</string>
+    <string name="btnTxt">Jogar</string>
     <string name="textWelcome"> Seja bem vindo :)</string>
-    <string name="textInfo">Para jogar, é necessário que você informe seu nome:</string>
+    <string name="textInfo">Para jogar, é necessário que você informe seu nome</string>
     <string name="hintInput">Nome</string>
+    <string name="playerNameKey">nomeKey</string>
+    <string name="mainPrefsKey">mainPrefsKey</string>
 </resources>

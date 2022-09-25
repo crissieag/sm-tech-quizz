@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Crissie/AndroidStudioProjects/TechQuizz/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Crissie/AndroidStudioProjects/TechQuizz/app/src/main/res/layout/activity_quizz.xml" value="0.1" />
+        <entry key="..\:/Users/Crissie/AndroidStudioProjects/TechQuizz/app/src/main/res/layout/quizz.xml" value="0.1" />
+        <entry key="..\:/Users/Crissie/AndroidStudioProjects/TechQuizz/app/src/main/res/layout/quizz_activity.xml" value="0.1" />
       </map>
     </option>
   </component>
