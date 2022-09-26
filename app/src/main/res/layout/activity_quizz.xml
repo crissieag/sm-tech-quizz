@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue_dark"
     tools:context=".QuizzActivity">
 
     <TextView
@@ -17,26 +24,30 @@
         android:text="Em qual data foi lançado o primeiro website?"
         android:textAlignment="center"
         android:textSize="40sp"
+        android:textColor="@color/yellow_darker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/opt_1"
+        android:id="@+id/btn_opt1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="16dp"
         android:onClick="trocarPergunta"
         android:text="27 de fevereiro de 1989"
+        android:textAllCaps="false"
+        android:textColor="@color/yellow_dark"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_pergunta" />
 
     <Button
-        android:id="@+id/opt_2"
+        android:id="@+id/btn_opt2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -44,13 +55,16 @@
         android:layout_marginEnd="16dp"
         android:onClick="trocarPergunta"
         android:text="14 de abril de 1995"
+        android:textAllCaps="false"
+        android:textColor="@color/yellow_dark"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opt_1" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_opt1" />
 
     <Button
-        android:id="@+id/opt_3"
+        android:id="@+id/btn_opt3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -58,13 +72,16 @@
         android:layout_marginEnd="16dp"
         android:onClick="trocarPergunta"
         android:text="06 de agosto de 1991"
+        android:textAllCaps="false"
+        android:textColor="@color/yellow_dark"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opt_2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_opt2" />
 
     <Button
-        android:id="@+id/opt_4"
+        android:id="@+id/btn_opt4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -72,9 +89,24 @@
         android:layout_marginEnd="16dp"
         android:onClick="trocarPergunta"
         android:text="22 de novembro de 1992"
+        android:textAllCaps="false"
+        android:textColor="@color/yellow_dark"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opt_3" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_opt3" />
+
+    <TextView
+        android:id="@+id/txt_pontua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Pontua:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_opt4"
+        android:textColor="@color/yellow_darker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
