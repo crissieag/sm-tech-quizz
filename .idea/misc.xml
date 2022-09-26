@@ -11,10 +11,11 @@
         <entry key="..\:/Users/Fernando/Desktop/Faculdade/sm-tech-quizz/app/src/main/res/drawable/ic_launcher_background.xml" value="0.349" />
         <entry key="..\:/Users/Fernando/Desktop/Faculdade/sm-tech-quizz/app/src/main/res/layout/activity_main.xml" value="0.2955575702629193" />
         <entry key="..\:/Users/Fernando/Desktop/Faculdade/sm-tech-quizz/app/src/main/res/layout/activity_quizz.xml" value="0.33" />
+        <entry key="..\:/Users/Fernando/Desktop/Faculdade/sm-tech-quizz/app/src/main/res/layout/activity_ranking.xml" value="0.2975630611372381" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
