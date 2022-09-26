@@ -6,4 +6,5 @@
     <string name="hintInput">Nome</string>
     <string name="playerNameKey">nomeKey</string>
     <string name="mainPrefsKey">mainPrefsKey</string>
+    <string name="pontuacaoPrefsKey">pontuacaoPrefsKey</string>
 </resources>
