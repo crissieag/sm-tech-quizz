@@ -18,7 +18,8 @@ public class QuizzActivity extends AppCompatActivity {
     Button opt3;
     Button opt4;
     TextView pontua;
-    int perguntaAtual = 0;
+    // Inicializando variáveis
+    int perguntaAtual = 0; // baseado no index
     int pontuacao = 0;
     String respostaEscolhida = "";
     int totalPerguntas = DinamicaPerguntas.perguntas.length;
@@ -35,6 +36,7 @@ public class QuizzActivity extends AppCompatActivity {
         opt4 = findViewById(R.id.btn_opt4);
         pontua = findViewById(R.id.txt_pontua);
 
+        // Inicializa na primeira pergunta
         novaPergunta();
 
         //busca na instancia de shared preference o conteúdo (nome do jogador) salvo com a chave (playerNameKey)
@@ -44,6 +46,7 @@ public class QuizzActivity extends AppCompatActivity {
 
     }
 
+    // Código antigo --não apagar
     public void trocarPergunta(View view)
     {
 //        String nova_pergunta = "";
@@ -101,9 +104,15 @@ public class QuizzActivity extends AppCompatActivity {
 //        pontua.setText("Pontuação: " + pontuacao);
     }
 
+    // Função atrelada aos botões de escolhas
     public void onClick(View view){
+        // Captura o botão opção que foi pressionado pelo usuário
         Button botaoPressionado = (Button) view;
+
+        // Extrai o texto e transforma em string
         respostaEscolhida = botaoPressionado.getText().toString();
+
+        // Faz a comparação com o array de respostas corretas
         if(respostaEscolhida.equals(DinamicaPerguntas.corretas[perguntaAtual])){
             pontuacao = pontuacao + 5;
         }else{
@@ -111,14 +120,22 @@ public class QuizzActivity extends AppCompatActivity {
         }
 
         pontua.setText("Pontuação: " + pontuacao);
+
+        // Soma um no index da pergunta atual
         perguntaAtual++;
+
+        // Muda para a próxima pergunta
         novaPergunta();
     }
 
     public void novaPergunta(){
+
+        // Quando percorrer todas as perguntas, prossegue para a próxima activity
         if(perguntaAtual == totalPerguntas){
             mostrarRanking();
         }
+
+        // Alterando os textos com base no index do array
         pergunta.setText(DinamicaPerguntas.perguntas[perguntaAtual]);
         opt1.setText(DinamicaPerguntas.escolhas[perguntaAtual][0]);
         opt2.setText(DinamicaPerguntas.escolhas[perguntaAtual][1]);
@@ -126,6 +143,7 @@ public class QuizzActivity extends AppCompatActivity {
         opt4.setText(DinamicaPerguntas.escolhas[perguntaAtual][3]);
     }
 
+    
     public void mostrarRanking(){
         Intent intent = new Intent(this, RankingActivity.class);
         startActivity(intent);
