@@ -50,18 +50,17 @@ public class MainActivity extends AppCompatActivity {
             //cria intent quando o botão é acionado, enviando para a activity do quizz
             Intent intent = new Intent(this, QuizzActivity.class);
 
+            //cria objeto bundle
+            Bundle bundle = new Bundle();
+
             //salva o valor do input na variável e o converte em string - pois é um editable
             String message = inputPlayerName.getText().toString();
 
-            //pega o shared preferences da activity, para que seja recuperado o conteúdo do input
-            SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.mainPrefsKey), Context.MODE_PRIVATE);
+            //salva o valor do bundle, relacionado a key/chave
+            bundle.putString("mainPrefsKey", message);
 
-            //utiliza classe editor para alterar o arquivo associado ao shared preferences
-            SharedPreferences.Editor editor = sharedPref.edit();
-
-            //usa o editor para adicionar um valor de string no arquivo com a chave - utiliza a chave para pesquisar
-            editor.putString(getString(R.string.playerNameKey), message);
-            editor.apply();
+            //atribui o objeto bundle a intent
+            intent.putExtras(bundle);
 
             //faz o redirecionamento para a activity do quizz
             startActivity(intent);

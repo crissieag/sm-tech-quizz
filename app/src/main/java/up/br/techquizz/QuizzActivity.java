@@ -23,12 +23,15 @@ public class QuizzActivity extends AppCompatActivity {
     int pontuacao = 0;
     String respostaEscolhida = "";
     int totalPerguntas = DinamicaPerguntas.perguntas.length;
-
+String nome = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
+        Bundle bundle = getIntent().getExtras();
 
+        // getting the string back
+        nome = bundle.getString("mainPrefsKey", "default");
         pergunta = findViewById(R.id.txt_pergunta);
         opt1 = findViewById(R.id.btn_opt1);
         opt2 = findViewById(R.id.btn_opt2);
@@ -146,6 +149,20 @@ public class QuizzActivity extends AppCompatActivity {
     
     public void mostrarRanking(){
         Intent intent = new Intent(this, RankingActivity.class);
+
+        // Converte em string o valor da pontuacao, pois é um inteiro
+        String pontuacaoValue = String.valueOf(pontuacao);
+
+        //cria objeto bundle
+        Bundle bundle = new Bundle();
+
+        //salva o valor do bundle, relacionado a key/chave
+        bundle.putString("mainPrefsKey", nome);
+        bundle.putString("playerPrefsKey", pontuacaoValue);
+
+        //atribui o objeto bundle a intent
+        intent.putExtras(bundle);
+
         startActivity(intent);
     }
 }
