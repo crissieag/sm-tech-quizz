@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import up.br.techquizz.model.Jogador;
+import up.br.techquizz.repository.JogadoresRepository;
+
 public class QuizzActivity extends AppCompatActivity {
 
     TextView pergunta;
@@ -30,8 +33,9 @@ String nome = "";
         setContentView(R.layout.activity_quizz);
         Bundle bundle = getIntent().getExtras();
 
-        // getting the string back
+      // Salva em variavel o nome do usuario colocado no bundle
         nome = bundle.getString("mainPrefsKey", "default");
+
         pergunta = findViewById(R.id.txt_pergunta);
         opt1 = findViewById(R.id.btn_opt1);
         opt2 = findViewById(R.id.btn_opt2);
@@ -119,7 +123,7 @@ String nome = "";
         if(respostaEscolhida.equals(DinamicaPerguntas.corretas[perguntaAtual])){
             pontuacao = pontuacao + 5;
         }else{
-            pontuacao =+ 0;
+            pontuacao += 0;
         }
 
         pontua.setText("Pontuação: " + pontuacao);
@@ -135,7 +139,9 @@ String nome = "";
 
         // Quando percorrer todas as perguntas, prossegue para a próxima activity
         if(perguntaAtual == totalPerguntas){
-            mostrarRanking();
+          salvarJogador();
+          mostrarRanking();
+          return;
         }
 
         // Alterando os textos com base no index do array
@@ -146,22 +152,19 @@ String nome = "";
         opt4.setText(DinamicaPerguntas.escolhas[perguntaAtual][3]);
     }
 
-    
-    public void mostrarRanking(){
-        Intent intent = new Intent(this, RankingActivity.class);
+    public void salvarJogador(){
 
         // Converte em string o valor da pontuacao, pois é um inteiro
         String pontuacaoValue = String.valueOf(pontuacao);
 
-        //cria objeto bundle
-        Bundle bundle = new Bundle();
+        Jogador jogadores = new Jogador(nome,pontuacaoValue);
 
-        //salva o valor do bundle, relacionado a key/chave
-        bundle.putString("mainPrefsKey", nome);
-        bundle.putString("playerPrefsKey", pontuacaoValue);
+        JogadoresRepository.getInstance().save(jogadores);
 
-        //atribui o objeto bundle a intent
-        intent.putExtras(bundle);
+    }
+
+    public void mostrarRanking(){
+        Intent intent = new Intent(this, RankingActivity.class);
 
         startActivity(intent);
     }

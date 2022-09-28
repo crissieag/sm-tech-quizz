@@ -1,31 +1,39 @@
 package up.br.techquizz;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import up.br.techquizz.Adapter.JogadorAdapter;
+import up.br.techquizz.model.Jogador;
+import up.br.techquizz.repository.JogadoresRepository;
+
 public class RankingActivity extends AppCompatActivity {
 
-    TextView nomePlayer;
-    TextView pontuacaoPlayer;
+    private RecyclerView recyclerViewJogadores;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
 
-        nomePlayer = findViewById(R.id.nome);
-        pontuacaoPlayer = findViewById(R.id.pontuacao);
+        recyclerViewJogadores = findViewById(R.id.jogadores_recyclerview);
+        recyclerViewJogadores.setLayoutManager(new LinearLayoutManager(this));
 
-        // getting the bundle back from the android
-        Bundle bundle = getIntent().getExtras();
 
-        // getting the string back
-        String nome = bundle.getString("mainPrefsKey", "default");
-        String pontuacao = bundle.getString("playerPrefsKey", "default");
+    }
 
-        nomePlayer.setText(nome);
-        pontuacaoPlayer.setText(pontuacao);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ArrayList<Jogador> jogadores = JogadoresRepository.getInstance().get();
+        JogadorAdapter jogadorAdapter = new JogadorAdapter(jogadores);
+        recyclerViewJogadores.setAdapter(jogadorAdapter);
     }
 }
